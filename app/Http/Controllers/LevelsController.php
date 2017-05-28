@@ -38,4 +38,7 @@ class LevelsController extends Controller
         $level->delete();
         return redirect()->back()->with(['message' => 'The Level Deleted Successfully']);
     }
+
+
+
 }

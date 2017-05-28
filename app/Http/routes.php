@@ -20,6 +20,7 @@ Route::get('/staff/confrim/{id}', [
     'as' => 'staff.confirm',
 ]);
 
+
 Route::get('/staff/info', [
     'uses' => 'StaffController@viewStaff',
     'as' => 'staff.view.frontend',
