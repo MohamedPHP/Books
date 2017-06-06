@@ -74,7 +74,7 @@
                                 <a href="{{ route('user.delete', ['id' => $user->id]) }}" class="btn-floating waves-effect waves-light red"><i class="material-icons">delete</i></a>
                             </td>
                             <td>
-                                <a href="{{ route('user.index.admin.approve', ['id' => $user->id]) }}" class="btn-floating waves-effect waves-light green">Approve</a>
+                                <a href="{{ route('user.index.staff.approve', ['id' => $user->id]) }}" class="btn-floating waves-effect waves-light green">Approve</a>
                             </td>
                         </tr>
                     @endforeach

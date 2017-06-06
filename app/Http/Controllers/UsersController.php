@@ -29,10 +29,27 @@ class UsersController extends Controller
         return view('backend.users.adminrequests', compact('users'));
     }
 
+
+
     public function adminRequestsApprove($id)
     {
         $user = User::findOrFail($id);
         $user->type = 3;
+        $user->adminrequest = 0;
+        $user->save();
+
+        return redirect()->back()->with(['message' => 'The Request Approved Successfully']);
+    }
+    public function staffRequests()
+    {
+        $users = User::where('id', '!=', 1)->where('adminrequest' , 2)->orderBy('created_at', 'desc')->get();
+        return view('backend.users.staffrequests', compact('users'));
+    }
+
+    public function staffRequestsApprove($id)
+    {
+        $user = User::findOrFail($id);
+        $user->type = 2;
         $user->adminrequest = 0;
         $user->save();
 

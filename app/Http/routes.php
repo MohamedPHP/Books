@@ -26,6 +26,15 @@ Route::get('/staff/info', [
     'as' => 'staff.view.frontend',
 ]);
 
+Route::get('/staff/register', [
+    'uses' => 'StaffController@register',
+    'as' => 'staff.register',
+]);
+Route::post('/staff/register', [
+    'uses' => 'StaffController@postregister',
+    'as' => 'staff.register.post',
+]);
+
 Route::post('/staff/confrim/update/{id}', [
     'uses' => 'StaffController@confirmpost',
     'as' => 'staff.confirm.update',
@@ -212,10 +221,18 @@ Route::group(['middleware' => 'admin'], function () {
             'uses' => 'UsersController@adminRequests',
             'as'   => 'user.index.admin.requests'
         ]);
+        Route::get('/users/staffrequests', [
+            'uses' => 'UsersController@staffRequests',
+            'as'   => 'user.index.staff.requests'
+        ]);
 
         Route::get('/users/adminrequests/approve/{id}', [
             'uses' => 'UsersController@adminRequestsApprove',
             'as'   => 'user.index.admin.approve'
+        ]);
+        Route::get('/users/staffrequests/approve/{id}', [
+            'uses' => 'UsersController@staffRequestsApprove',
+            'as'   => 'user.index.staff.approve'
         ]);
 
         Route::get('/staff/preview', [

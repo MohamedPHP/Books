@@ -21,7 +21,8 @@
     <div class="row" style="padding: 20px;">
         <div class="col s12  z-depth-1">
             <div class="card-panel teal">
-                <span class="white-text">Note: All The Users Shown Accept the Admin <a href="{{ route('user.index.admin.requests') }}">Admin Requests</a></span>
+                <span class="white-text">Note: All The Users Shown Accept the Admin <a href="{{ route('user.index.admin.requests') }}">Admin Requests</a></span> <br>
+                <span class="white-text">Note: All The Users Shown Accept the Staff <a href="{{ route('user.index.staff.requests') }}">Staff Requests</a></span>
             </div>
         </div>
     </div>

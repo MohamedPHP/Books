@@ -208,4 +208,45 @@ class StaffController extends Controller
        return view('frontend.doctors', compact('staffs'));
     }
 
+    public function register()
+    {
+        $level = Level::all();
+        $specialization = Specialization::all();
+        return view('frontend.staffregister', compact('level', 'specialization'));
+    }
+    public function postregister(Request $request)
+    {
+        // {{-- `name`, `email`, `password`, `address`, `phonenumber`, `type`, `level_id`, `specialization_id` --}}
+        $this->validate($request, [
+            'name'              => 'required',
+            'email'             => 'required|email|unique:users',
+            'student_id'        => 'required|min:8|unique:users',
+            'password'          => 'required|confirmed|min:6',
+            'address'           => 'required',
+            'phonenumber'       => 'required|numeric',
+        ]);
+
+        $user = new User();
+        $user->name             = $request['name'];
+        $user->email            = $request['email'];
+        $user->student_id       = $request['student_id'];
+        $user->password         = bcrypt($request['password']);
+        $user->address          = $request['address'];
+        $user->phonenumber      = $request['phonenumber'];
+        $user->type             = 1;
+        $user->level_id         = 4;
+        $user->specialization_id= 1;
+        $user->adminrequest     = 2;
+        if (!empty($request['staff_image'])) {
+            $user->staff_image         = $this->uploadImageStaff($request['staff_image']);
+        }else {
+            $user->staff_image         = 'backend/staff_img/avatar.jpg';
+        }
+        $user->save();
+
+        $message = 'Your Request Has Been Sent Successfully';
+
+        return redirect()->back()->with(['message' => $message]);
+    }
+
 }

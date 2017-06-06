@@ -31,6 +31,7 @@
                     <li><a href="#login-modal">Login</a></li>
                     <li><a href="{{ url('register') }}">Register</a></li>
                     <li><a href="{{ route('admin.register.frontend') }}">Register Admin</a></li>
+                    <li><a href="{{ route('staff.register') }}">Register Staff</a></li>
                 @endif
             </ul>
 
