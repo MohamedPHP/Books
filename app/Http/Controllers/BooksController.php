@@ -63,7 +63,7 @@ class BooksController extends Controller
             'image'                 => 'required|image|mimes:jpg,png,jpeg|max:5000',
             'file'                  => 'required|mimes:pdf|max:10240',
             'sample'                => 'required|mimes:pdf|max:10240',
-            'version'               => 'required|numeric',
+            'version'               => 'required',
             'description'           => 'required|min:100',
             'cat_id'                => 'required|numeric',
             'level_id'              => 'required|numeric',

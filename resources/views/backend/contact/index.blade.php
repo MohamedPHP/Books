@@ -23,8 +23,8 @@
                         <th>Name</th>
                         <th>email</th>
                         <th>phone</th>
-                        <th width="600">message</th>
-                        <th>Edit</th>
+                        <th width="400">message</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>

@@ -39,6 +39,12 @@ Route::post('/user/adminregister', [
     'uses' => 'UsersController@adminregistrationPost',
     'as'   => 'admin.register.post'
 ]);
+//  start contact
+ Route::post('/contact/store', [
+     'uses' => 'ContactController@store',
+     'as'   => 'contact.store',
+ ]);
+ //  end contact
 // staff routes
 
 Route::auth();
@@ -91,12 +97,6 @@ Route::group(['middleware' => 'auth'], function () {
       'uses' => 'BooksController@search',
       'as'   => 'books.search',
    ]);
-   //  start contact
-    Route::post('/contact/store', [
-        'uses' => 'ContactController@store',
-        'as'   => 'contact.store',
-    ]);
-    //  start contact
 
     // profile start
     Route::get('/profile', [
