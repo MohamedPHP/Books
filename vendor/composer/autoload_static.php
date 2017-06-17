@@ -265,8 +265,10 @@ class ComposerStaticInit8dca14c9ccf123b3fc26c974c7fdda9b
 
     public static $classMap = array (
         'CatsTableSeeder' => __DIR__ . '/../..' . '/database/seeds/CatsTableSeeder.php',
+        'CodesTableSeeder' => __DIR__ . '/../..' . '/database/seeds/CodesTableSeeder.php',
         'CreateBooksTable' => __DIR__ . '/../..' . '/database/migrations/2017_03_30_120820_create_books_table.php',
         'CreateCategouriesTable' => __DIR__ . '/../..' . '/database/migrations/2017_03_30_120700_create_categouries_table.php',
+        'CreateCodesTable' => __DIR__ . '/../..' . '/database/migrations/2017_06_17_095320_create_codes_table.php',
         'CreateContactsTable' => __DIR__ . '/../..' . '/database/migrations/2017_03_31_232227_create_contacts_table.php',
         'CreateDownloadsTable' => __DIR__ . '/../..' . '/database/migrations/2017_05_01_161206_create_downloads_table.php',
         'CreateLevelsTable' => __DIR__ . '/../..' . '/database/migrations/2017_03_30_120642_create_levels_table.php',
@@ -790,6 +792,7 @@ class ComposerStaticInit8dca14c9ccf123b3fc26c974c7fdda9b
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
         'SiteSetting' => __DIR__ . '/../..' . '/database/seeds/SiteSetting.php',
         'SplizationsTableSeeder' => __DIR__ . '/../..' . '/database/seeds/SplizationsTableSeeder.php',
+        'SubTableSeeder' => __DIR__ . '/../..' . '/database/seeds/SubTableSeeder.php',
         'TestCase' => __DIR__ . '/../..' . '/tests/TestCase.php',
         'Text_Template' => __DIR__ . '/..' . '/phpunit/php-text-template/src/Template.php',
         'UsersTableSeeder' => __DIR__ . '/../..' . '/database/seeds/UsersTableSeeder.php',

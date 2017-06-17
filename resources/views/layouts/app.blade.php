@@ -24,7 +24,8 @@
             <ul class="right hide-on-med-and-down">
                 <li><a href="{{ url('/') }}">Home</a></li>
                 @if (Auth::check())
-                    <li><a href="{{ url('/books') }}">View All Books</a></li>
+                    <li><a href="{{ url('/books') }}">Books</a></li>
+                    <li><a href="{{ url('/cources') }}">Cources</a></li>
                     <li><a href="{{ route('user.profile') }}">Profile</a></li>
                     <li><a href="{{ url('/logout') }}">Logout</a></li>
                 @else
@@ -37,21 +38,14 @@
 
             <ul id="nav-mobile" class="side-nav">
                 @if (Auth::check())
-                    <li><a href="{{ url('/books') }}">View All Books</a></li>
-                    <li>
-                        <a class='dropdown-button' href='#' data-activates='cats-mobile'>Categouries</a><!-- Dropdown Trigger -->
-                        <ul id='cats-mobile' class='dropdown-content'>
-                             @foreach (\App\Categoury::all() as $cat)
-                                  <li><a href="{{ route('books.category.filter', ['cat_id' => $cat->id]) }}">{{ $cat->name }}</a></li>
-                             @endforeach
-                        </ul><!-- Dropdown Structure -->
-                    </li>
+                    <li><a href="{{ url('/books') }}">Cources</a></li>
                     <li><a href="{{ route('user.profile') }}">Profile</a></li>
                     <li><a href="{{ url('/logout') }}">Logout</a></li>
                 @else
                     <li><a href="#login-modal">Login</a></li>
                     <li><a href="{{ url('register') }}">Register</a></li>
                     <li><a href="{{ route('admin.register.frontend') }}">Register Admin</a></li>
+                    <li><a href="{{ route('staff.register') }}">Register Staff</a></li>
                 @endif
             </ul>
             <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>

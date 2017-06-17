@@ -14,7 +14,7 @@ class User extends Authenticatable
      // 'name', 'email', 'password', 'download_limit', 'address', 'phonenumber',
      // 'generated_id', 'type', 'level_id', 'specialization_id'
     protected $fillable = [
-        'name', 'email', 'password', 'download_limit', 'address', 'phonenumber','student_id', 'type', 'level_id', 'specialization_id'
+        'name', 'email', 'password', 'download_limit', 'address', 'phonenumber','student_id', 'type', 'level_id', 'specialization_id', 'code_id'
     ];
 
     /**
@@ -31,6 +31,11 @@ class User extends Authenticatable
     }
     public function specialization(){
         return $this->belongsTo('App\Specialization');
+    }
+
+
+    public function code(){
+        return $this->belongsTo('App\Code');
     }
 
     // books relations

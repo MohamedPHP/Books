@@ -60,23 +60,36 @@ Route::post('/user/adminregister', [
 Route::auth();
 
 Route::group(['middleware' => 'auth'], function () {
+    // cources
+    Route::get('/cources', [
+        'uses' => 'SubjectsController@getCources',
+        'as'   => 'cources',
+    ]);
+    Route::get('/cource/{id}/books', [
+        'uses' => 'SubjectsController@getCourceBooks',
+        'as'   => 'cource.books',
+    ]);
+    Route::get('/cource/search', [
+        'uses' => 'SubjectsController@search',
+        'as'   => 'cources.search',
+    ]);
    // get the books by the levels
    Route::get('/books', [
       'uses' => 'BooksController@getBooks',
       'as'   => 'books.level',
    ]);
    // get single book
-   Route::get('/books/single/{id}', [
+   Route::get('/book/single/{id}', [
       'uses' => 'BooksController@getSingleBook',
       'as'   => 'book.single',
    ]);
    // view pdf
-   Route::get('/books/view/pdf/{id}', [
+   Route::get('/book/view/pdf/{id}', [
        'uses' => 'BooksController@viewPDF',
        'as'   => 'user.view.pdf',
    ]);
    // download pdf
-   Route::get('/books/download/pdf/{id}', [
+   Route::get('/book/download/pdf/{id}', [
        'uses' => 'BooksController@downloadPDF',
        'as'   => 'user.download.pdf',
    ]);
@@ -207,6 +220,35 @@ Route::group(['middleware' => 'admin'], function () {
             'as'   => 'cat.delete',
         ]);
         // cats End
+
+
+
+        // codes Start
+        Route::get('/codes', [
+            'uses' => 'CodesController@index',
+            'as'   => 'code.index',
+        ]);
+        Route::get('/codes/create', [
+            'uses' => 'CodesController@create',
+            'as'   => 'code.create',
+        ]);
+        Route::post('/codes/store', [
+            'uses' => 'CodesController@store',
+            'as'   => 'code.store',
+        ]);
+        Route::get('/codes/edit/{id}', [
+            'uses' => 'CodesController@edit',
+            'as'   => 'code.edit',
+        ]);
+        Route::post('/codes/update/{id}', [
+            'uses' => 'CodesController@update',
+            'as'   => 'code.update',
+        ]);
+        Route::get('/codes/delete/{id}', [
+            'uses' => 'CodesController@delete',
+            'as'   => 'code.delete',
+        ]);
+        // codes End
 
 
         // start users

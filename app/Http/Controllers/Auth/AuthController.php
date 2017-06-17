@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Code;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -34,6 +35,8 @@ class AuthController extends Controller
 
     // protected $loginView = 'frontend.welcome';
 
+    public $code_id;
+
     /**
      * Create a new authentication controller instance.
      *
@@ -50,36 +53,61 @@ class AuthController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
-    {
-        $validate = Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|min:6|confirmed',
-            'address' => 'required|min:6',
-            'phonenumber' => 'required|min:11|numeric',
-            'student_id' => 'required|min:8|unique:users',
-            'level_id' => 'required|numeric',
-            'specialization_id' => 'required|numeric',
-        ]);
+     protected function validator(array $data)
+     {
+         $validate = Validator::make($data, [
+             'name' => 'required|max:255',
+             'email' => 'required|email|max:255|unique:users',
+             'password' => 'required|min:6|confirmed',
+             'address' => 'required|min:6',
+             'phonenumber' => 'required|min:11|numeric',
+             'student_id' => 'required|min:8|unique:users',
+             'level_id' => 'required|numeric',
+             'specialization_id' => 'required|numeric',
+             'code' => 'required',
+         ]);
 
-        // NOTE get the First 2 string For the student id
-        $student_id = substr($data['student_id'], 0, 2);
+         // NOTE get the First 2 string For the student id
+         $student_id = substr($data['student_id'], 0, 2);
 
-        // NOTE Make The Allowed id form [Start With 19 OR 20]
-        $allowedFormate = ['19', '20'];
+         // NOTE Make The Allowed id form [Start With 19 OR 20]
+         $allowedFormate = ['19', '20'];
 
-        if (!in_array($student_id, $allowedFormate)) {
-           $validate->after(function($validate){
+         if (!in_array($student_id, $allowedFormate)) {
+             $validate->after(function($validate){
+                 $validate->errors()->add('student_id', 'the student id field must start with year from 1993 till ' . date('Y'));
+             });
 
-             $validate->errors()->add('student_id', 'the student id field must start with year from 1993 till ' . date('Y'));
+         }
 
-          });
 
-       }
+         $code = Code::where('code', $data['code'])->first();
+         $stid = Code::where('student_id', $data['student_id'])->first();
 
-        return $validate;
-    }
+         if ($code) {
+             if ($stid) {
+                 if ($code->student_id == $stid->student_id) {
+                     $this->code_id = $code->id;
+                     return $validate;
+                 }else {
+                     $validate->after(function($validate){
+                         $validate->errors()->add('code', 'The Code You Entered Exsist But The Student ID Dosent Belong To It');
+                     });
+                 }
+             }else {
+                 $validate->after(function($validate){
+                     $validate->errors()->add('code', 'The StudentID You Entered Dose Not Exsist');
+                 });
+             }
+         }else {
+             $validate->after(function($validate){
+                 $validate->errors()->add('code', 'The Code You Entered Dose Not Exsist');
+             });
+         }
+
+
+         return $validate;
+     }
 
     /**
      * Create a new user instance after a valid registration.
@@ -99,6 +127,7 @@ class AuthController extends Controller
          'type' => 1,
          'level_id' => $data['level_id'],
          'specialization_id' => $data['specialization_id'],
+         'code_id' => $this->code_id,
       ]);
 
 

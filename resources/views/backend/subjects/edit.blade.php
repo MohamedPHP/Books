@@ -21,9 +21,13 @@
                 {{ csrf_field() }}
                 {{-- `name`, `email`, `password`, `download_limit`, `address`, `phonenumber`, `generated_id`, `type`, `level_id`, `specialization_id` --}}
                 <div class="row">
-                    <div class="input-field col s12">
+                    <div class="input-field col s6">
                         <input id="name" name="name" type="text" class="validate" value="{{ old('name') !== null ? old('name') : $subject->name }}">
                         <label for="name">name</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="code" name="code" type="text" class="validate" value="{{ old('code') !== null ? old('code') : $subject->code }}">
+                        <label for="code">code</label>
                     </div>
                 </div>
                 <div class="row">

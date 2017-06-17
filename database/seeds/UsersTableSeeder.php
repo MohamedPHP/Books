@@ -28,6 +28,7 @@ class UsersTableSeeder extends Seeder
                 'type'                => 3,
                 'level_id'            => 4,
                 'specialization_id'   => 1,
+                'code_id'   => 1,
             ],
         ];
         DB::table('users')->insert($Users);

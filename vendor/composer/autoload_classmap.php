@@ -7,8 +7,10 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'CatsTableSeeder' => $baseDir . '/database/seeds/CatsTableSeeder.php',
+    'CodesTableSeeder' => $baseDir . '/database/seeds/CodesTableSeeder.php',
     'CreateBooksTable' => $baseDir . '/database/migrations/2017_03_30_120820_create_books_table.php',
     'CreateCategouriesTable' => $baseDir . '/database/migrations/2017_03_30_120700_create_categouries_table.php',
+    'CreateCodesTable' => $baseDir . '/database/migrations/2017_06_17_095320_create_codes_table.php',
     'CreateContactsTable' => $baseDir . '/database/migrations/2017_03_31_232227_create_contacts_table.php',
     'CreateDownloadsTable' => $baseDir . '/database/migrations/2017_05_01_161206_create_downloads_table.php',
     'CreateLevelsTable' => $baseDir . '/database/migrations/2017_03_30_120642_create_levels_table.php',
@@ -532,6 +534,7 @@ return array(
     'SebastianBergmann\\Version' => $vendorDir . '/sebastian/version/src/Version.php',
     'SiteSetting' => $baseDir . '/database/seeds/SiteSetting.php',
     'SplizationsTableSeeder' => $baseDir . '/database/seeds/SplizationsTableSeeder.php',
+    'SubTableSeeder' => $baseDir . '/database/seeds/SubTableSeeder.php',
     'TestCase' => $baseDir . '/tests/TestCase.php',
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/src/Template.php',
     'UsersTableSeeder' => $baseDir . '/database/seeds/UsersTableSeeder.php',

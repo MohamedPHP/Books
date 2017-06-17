@@ -52,6 +52,24 @@
             </div>
         </li>
 
+
+
+        <li id="dash_codes">
+            <div id="dash_codes_header" class="collapsible-header waves-effect"><b>Codes</b></div>
+            <div id="dash_codes_body" class="collapsible-body">
+                <ul>
+                    <li id="codes_all">
+                        <a class="waves-effect" style="text-decoration: none;" href="{{ route('code.index') }}">All Codes</a>
+                    </li>
+
+                    <li id="codes_create">
+                        <a class="waves-effect" style="text-decoration: none;" href="{{ route('code.create') }}">Add Code</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+
         <li id="dash_users">
             <div id="dash_users_header" class="collapsible-header waves-effect"><b>Users</b></div>
             <div id="dash_users_body" class="collapsible-body">

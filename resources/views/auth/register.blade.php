@@ -35,11 +35,15 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s6">
+                    <div class="input-field col s4">
+                        <input id="code" type="text" name="code" class="validate" value="{{ old('code') }}">
+                        <label for="code" data-success="right">Code</label>
+                    </div>
+                    <div class="input-field col s4">
                         <input id="address" type="text" name="address" class="validate" value="{{ old('address') }}">
                         <label for="address" data-success="right">Address</label>
                     </div>
-                    <div class="input-field col s6">
+                    <div class="input-field col s4">
                         <input id="phonenumber" type="number" name="phonenumber" class="validate" value="{{ old('phonenumber') }}">
                         <label for="phonenumber" data-error="Please Write A Valid Phone" data-success="right">Phone Number</label>
                     </div>

@@ -21,6 +21,7 @@
                     <tr>
                         <th>#ID</th>
                         <th>Name</th>
+                        <th>Code</th>
                         <th>Level</th>
                         <th>Specialization</th>
                         <th>Delete</th>
@@ -33,6 +34,7 @@
                         <tr>
                             <td>#{{ $subject->id }}</td>
                             <td>{{ $subject->name }}</td>
+                            <td>{{ $subject->code }}</td>
                             <td>{{ $subject->level->number }}</td>
                             <td>{{ $subject->specialization->name }}</td>
                             <td>
