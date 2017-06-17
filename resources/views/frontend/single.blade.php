@@ -65,7 +65,7 @@
                                  <a
                                    class="waves-effect waves-light btn primary"
                                    href="{{ route('user.download.pdf', ['id' => $getBook->id]) }}" target="_blank" id="DBook" data-bookid="{{$getBook->id}}">
-                                   Download
+                                   Download Sample
                                  </a>
 
                                  <a

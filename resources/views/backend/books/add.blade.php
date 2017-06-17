@@ -60,9 +60,13 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s12">
+                    <div class="input-field col s6">
                         <input id="version" name="version" type="text" class="validate" value="{{ old('version') }}">
                         <label for="version">version</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="book_code" name="book_code" type="text" class="validate" value="{{ old('book_code') }}">
+                        <label for="book_code">book code</label>
                     </div>
                 </div>
 
@@ -102,7 +106,7 @@
                     </div>
                     <div class="input-field col s12 subject_container">
                         <select name="subject_id" id="subject_id">
-                            
+
                         </select>
                         <label>Subject</label>
                     </div>

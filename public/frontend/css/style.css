@@ -119,13 +119,8 @@ footer.page-footer {
 }
 
 .category {
-   box-shadow: 1px 1px 16px #eee;
-   width: 132px;
-   position: absolute;
-   top: 178px;
-   right: 144px;
-   opacity: 1;
-   display: block
+    box-shadow: 1px 1px 16px #eee;
+    width: 100%;
 }
 
 .category li {

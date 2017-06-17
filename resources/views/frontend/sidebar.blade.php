@@ -11,6 +11,7 @@
                     <option value="" disabled selected>Choose your option</option>
                     <option value="1">Book Name</option>
                     <option value="2">Author</option>
+                    <option value="3">book code</option>
                </select>
                 <button class="btn waves-effect waves-light" type="submit">Submit
                     <i class="material-icons right">send</i>
@@ -21,11 +22,21 @@
     <hr>
     <div class="row">
         <div class="col s12">
-            <div class="card-panel teal">
-                <span class="white-text">
-                    Note: These books Are Filtterd by the Level and the Specialization That You In It These year.
-                </span>
-            </div>
+            <ul class="category hoverable">
+                @foreach (\App\Categoury::all() as $cat)
+                    <li><a href="{{ route('books.category.filter', ['cat_id' => $cat->id]) }}">{{ $cat->name }}</a></li>
+                @endforeach
+            </ul><!-- Dropdown Structure -->
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col s12">
+            <ul class="category hoverable">
+                @foreach (\App\Level::all() as $level)
+                    <li><a href="{{ route('books.level.filter', ['id' => $level->id]) }}">Level {{ $level->number }}</a></li>
+                @endforeach
+            </ul>
         </div>
     </div>
 </div>

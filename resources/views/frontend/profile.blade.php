@@ -36,7 +36,7 @@
              <div class="col s12">
                  <ul class="tabs">
                      <li class="tab col s3"><a class="active" href="#test1">Liked Books</a></li>
-                     <li class="tab col s3"><a class="active" href="#downloaded">Downloaded Books</a></li>
+                     <li class="tab col s3"><a class="active" href="#downloaded">Downloaded Samples</a></li>
                      <li class="tab col s3"><a href="#test2">My Data</a></li>
                      @php
                           $type = '';
@@ -84,7 +84,7 @@
              </div>
              <div id="downloaded" class="col s12">
                  <div class="table-cont z-depth-1">
-                     <h5>Downloaded Books</h5>
+                     <h5>Downloaded Samples</h5>
                      <hr>
                  </div>
                  <div class="table-cont z-depth-1">

@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.welcome');
-});
+Route::get('/', [
+    'uses' => 'HomeController@homepage',
+    'as'   => 'homepage',
+]);
 // staff routes
 Route::get('/staff/confrim/{id}', [
     'uses' => 'StaffController@confirm',
@@ -61,7 +62,7 @@ Route::auth();
 Route::group(['middleware' => 'auth'], function () {
    // get the books by the levels
    Route::get('/books', [
-      'uses' => 'BooksController@getBooksByLevel',
+      'uses' => 'BooksController@getBooks',
       'as'   => 'books.level',
    ]);
    // get single book
@@ -96,10 +97,10 @@ Route::group(['middleware' => 'auth'], function () {
        'uses' => 'BooksController@filterCategoury',
        'as'   => 'books.category.filter',
    ]);
-   // filter Specialization
-    Route::get('/books/Specialization/{Specialization_id}', [
-      'uses' => 'BooksController@filterSpecialization',
-      'as'   => 'books.Specialization.filter',
+   // filter category
+   Route::get('/books/level/{id}', [
+       'uses' => 'BooksController@filterLevel',
+       'as'   => 'books.level.filter',
    ]);
    // search
     Route::get('/books/search', [
@@ -178,10 +179,6 @@ Route::group(['middleware' => 'admin'], function () {
             'uses' => 'LevelsController@store',
             'as'   => 'level.store',
         ]);
-        Route::get('/level/delete/{id}', [
-            'uses' => 'LevelsController@delete',
-            'as'   => 'level.delete',
-        ]);
         // Levels End
 
         // cats Start
@@ -258,6 +255,10 @@ Route::group(['middleware' => 'admin'], function () {
         Route::get('/users/delete/{id}', [
             'uses' => 'UsersController@delete',
             'as'   => 'user.delete',
+        ]);
+        Route::get('/users/block/{id}', [
+            'uses' => 'UsersController@block',
+            'as'   => 'user.block',
         ]);
         // end users
 

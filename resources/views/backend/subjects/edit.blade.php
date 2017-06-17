@@ -4,7 +4,7 @@
 @section('content')
     <div class="row" style="padding: 25px;">
         <div class="col s12 z-depth-1">
-            <h5>Edit Subject {{ $subject->name }}</h5>
+            <h5>Edit Cource {{ $subject->name }}</h5>
         </div>
     </div>
     <div class="row" style="padding: 25px;">

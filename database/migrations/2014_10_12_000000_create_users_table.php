@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('address');
             $table->string('phonenumber');
             $table->string('student_id')->unique();
-            $table->integer('type'); // if 3 => admin, 2 => staff, 1 => student
+            $table->integer('type'); // if 3 => admin, 2 => staff, 1 => student, 0 => blocked
             $table->integer('level_id')->unsigned();
             $table->foreign('level_id')->references('id')->on('levels')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('specialization_id')->unsigned();

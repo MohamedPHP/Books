@@ -24,6 +24,12 @@ class Authenticate
                 return redirect()->guest('/');
             }
         }
+        if (Auth::check()) {
+            if (Auth::user()->type == 0) {
+                Auth::logout();
+                return redirect()->guest('/');
+            }
+        }
 
         return $next($request);
     }

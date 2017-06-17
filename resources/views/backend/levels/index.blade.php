@@ -21,7 +21,6 @@
                     <tr>
                         <th>#ID</th>
                         <th>Number</th>
-                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -29,7 +28,6 @@
                         <tr>
                             <td>#{{ $level->id }}</td>
                             <td>Level {{ $level->number }}</td>
-                            <td>  <a href="{{ route('level.delete', ['id' => $level->id]) }}" class="btn-floating waves-effect waves-light red"><i class="material-icons">delete</i></a></td>
                         </tr>
                     @endforeach
                 </tbody>

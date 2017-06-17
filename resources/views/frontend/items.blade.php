@@ -21,7 +21,7 @@
                @include('frontend.sidebar')
                {{-- Side Bar --}}
                {{-- Items --}}
-               <div class="col s7">
+               <div class="col s9">
                     {{-- cards --}}
                     <div class="row">
                          @if (count($books) > 0)
@@ -33,13 +33,6 @@
                     <ul class="pagination col s6 offset-s3">
                          {{ $books->appends(Request::query())->render() }}
                     </ul>
-               </div>
-               <div class="col s2">
-                   <ul class="category hoverable">
-                        @foreach (\App\Categoury::all() as $cat)
-                             <li><a href="{{ route('books.category.filter', ['cat_id' => $cat->id]) }}">{{ $cat->name }}</a></li>
-                        @endforeach
-                   </ul><!-- Dropdown Structure -->
                </div>
                {{-- cards --}}
           </div>

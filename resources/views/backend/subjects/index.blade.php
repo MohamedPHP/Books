@@ -4,7 +4,7 @@
 @section('content')
     <div class="row" style="padding: 20px;">
         <div class="col s12 z-depth-1">
-            <h5>Manage Subjects</h5>
+            <h5>Manage Cources</h5>
         </div>
     </div>
     <div class="row" style="padding: 20px;">

@@ -41,6 +41,7 @@
                         <th>Level</th>
                         <th>Specialization</th>
                         <th>Delete</th>
+                        <th>Block</th>
                         <th>Edit</th>
                     </tr>
                 </thead>
@@ -63,6 +64,10 @@
                                     <div class="">
                                         <span class="badge green">Staff</span>
                                     </div>
+                                @elseif ($user->type == 0)
+                                    <div class="">
+                                        <span class="badge black">Blocked</span>
+                                    </div>
                                 @else
                                     <div class="">
                                         <span class="badge blue">Student</span>
@@ -73,6 +78,9 @@
                             <td>{{ $user->specialization->name }}</td>
                             <td>
                                 <a href="{{ route('user.delete', ['id' => $user->id]) }}" class="btn-floating waves-effect waves-light red"><i class="material-icons">delete</i></a>
+                            </td>
+                            <td>
+                                <a href="{{ route('user.block', ['id' => $user->id]) }}" class="btn-floating waves-effect waves-light black"><i class="material-icons">block</i></a>
                             </td>
                             <td>
                                 <a href="{{ route('user.edit', ['id' => $user->id]) }}" class="btn-floating waves-effect waves-light green"><i class="material-icons">edit</i></a>

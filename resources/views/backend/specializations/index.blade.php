@@ -4,13 +4,13 @@
 @section('content')
     <div class="row" style="padding: 20px;">
         <div class="col s12 z-depth-1">
-            <h5>Manage Specializations</h5>
+            <h5>Manage Majors</h5>
         </div>
     </div>
     <div class="row" style="padding: 20px;">
         <div class="col s12  z-depth-1">
             <div class="card-panel teal">
-                <span class="white-text">If You Delete any specialization All The Data Related To That specialization Will Be Removed From The Database.</span>
+                <span class="white-text">If You Delete any Major All The Data Related To That Major Will Be Removed From The Database.</span>
             </div>
         </div>
     </div>

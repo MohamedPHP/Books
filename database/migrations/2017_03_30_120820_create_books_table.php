@@ -21,18 +21,15 @@ class CreateBooksTable extends Migration
             $table->string('file');
             $table->string('sample');
             $table->string('version');
+            $table->string('book_code');
             $table->text('description');
-
             // relations
             $table->integer('cat_id')->unsigned();
             $table->foreign('cat_id')->references('id')->on('categouries')->onDelete('cascade')->onUpdate('cascade');
-
             $table->integer('level_id')->unsigned();
             $table->foreign('level_id')->references('id')->on('levels')->onDelete('cascade')->onUpdate('cascade');
-
             $table->integer('specialization_id')->unsigned();
             $table->foreign('specialization_id')->references('id')->on('specializations')->onDelete('cascade')->onUpdate('cascade');
-
             // relations
             $table->integer('subject_id')->unsigned();
             $table->integer('status')->default(0);

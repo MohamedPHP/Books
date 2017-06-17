@@ -68,11 +68,11 @@
         </li>
 
         <li id="dash_specialization">
-            <div id="dash_specialization_header" class="collapsible-header waves-effect"><b>Specializations</b></div>
+            <div id="dash_specialization_header" class="collapsible-header waves-effect"><b>Majors</b></div>
             <div id="dash_specialization_body" class="collapsible-body">
                 <ul>
                     <li id="specialization_product">
-                        <a class="waves-effect" style="text-decoration: none;" href="{{ route('specialization.index') }}">Specialization All</a>
+                        <a class="waves-effect" style="text-decoration: none;" href="{{ route('specialization.index') }}">All Majors</a>
                         <a class="waves-effect" style="text-decoration: none;" href="{{ route('specialization.create') }}">Create</a>
                     </li>
                 </ul>
@@ -81,15 +81,15 @@
 
 
         <li id="dash_subjects">
-            <div id="dash_subjects_header" class="collapsible-header waves-effect"><b>Subjects</b></div>
+            <div id="dash_subjects_header" class="collapsible-header waves-effect"><b>Cources</b></div>
             <div id="dash_subjects_body" class="collapsible-body">
                 <ul>
                     <li id="subjects">
-                        <a class="waves-effect" style="text-decoration: none;" href="{{ route('subject.index') }}">View Subjects</a>
+                        <a class="waves-effect" style="text-decoration: none;" href="{{ route('subject.index') }}">View Cources</a>
                     </li>
 
                     <li id="subjects_add">
-                        <a class="waves-effect" style="text-decoration: none;" href="{{ route('subject.create') }}">Add Subjects</a>
+                        <a class="waves-effect" style="text-decoration: none;" href="{{ route('subject.create') }}">Add Cource</a>
                     </li>
                 </ul>
             </div>

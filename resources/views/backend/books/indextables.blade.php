@@ -35,6 +35,7 @@
                         <th>Author</th>
                         <th>Image</th>
                         <th>Version</th>
+                        <th>book code</th>
                         <th>Description</th>
                         <th>Categoury</th>
                         <th>Level</th>
@@ -53,6 +54,7 @@
                             <td>{{ $book->author }}</td>
                             <td><img class="materialboxed" width="100" src="{{asset($book->image)}}"></td>
                             <td>{{ $book->version }}</td>
+                            <td>{{ $book->book_code }}</td>
                             <td>{{ str_split($book->description, 20)[0] . '...' }}</td>
                             <td>{{ App\Categoury::where('id', $book->cat_id)->first()->name }}</td>
                             <td>{{ $book->level->number }}</td>

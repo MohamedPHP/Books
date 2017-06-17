@@ -4,13 +4,13 @@
 @section('content')
     <div class="row" style="padding: 25px;">
         <div class="col s12 z-depth-1">
-            <h5>Edit specialization "{{ $specialization->name }}"</h5>
+            <h5>Edit Major "{{ $specialization->name }}"</h5>
         </div>
     </div>
     <div class="row" style="padding: 25px;">
         <div class="col s12  z-depth-1">
             <div class="card-panel teal">
-                <span class="white-text">The specialization Name Can't Be Reapeated And It's required.</span>
+                <span class="white-text">The Major Name Can't Be Reapeated And It's required.</span>
             </div>
         </div>
     </div>
@@ -22,7 +22,7 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <input id="specialization" name="name" type="text" class="validate" value="{{ old('name') !== null ? old('name') : $specialization->name }}">
-                        <label for="specialization">specialization name</label>
+                        <label for="specialization">Major name</label>
                     </div>
                 </div>
                 <div class="row">

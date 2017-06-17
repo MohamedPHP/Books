@@ -30,15 +30,6 @@ class LevelsController extends Controller
         $level->save();
 
         return redirect()->back()->with(['message' => 'The Level Added Successfully']);
-
     }
-    public function delete($id)
-    {
-        $level = Level::find($id);
-        $level->delete();
-        return redirect()->back()->with(['message' => 'The Level Deleted Successfully']);
-    }
-
-
 
 }

@@ -70,7 +70,7 @@
                     </div>
                     <div class="input-field col s6">
                         <select name="specialization_id">
-                            <option value="" disabled selected>Select A specialization</option>
+                            <option value="" disabled selected>Select A Mejor</option>
                             @php
                                 $spech = App\Specialization::all();
                             @endphp
@@ -78,7 +78,7 @@
                                 <option value="{{ $key->id }}">{{ $key->name }}</option>
                             @endforeach
                         </select>
-                        <label>Level</label>
+                        <label>Mejor</label>
                     </div>
                 </div>
                 <div class="row">

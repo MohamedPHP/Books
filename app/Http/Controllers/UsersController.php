@@ -160,6 +160,21 @@ class UsersController extends Controller
         return redirect()->back()->with(['message' => 'The User Deleted Successfully']);
     }
 
+    public function block($id)
+    {
+        if ($id == 1) {
+            return redirect()->back()->with(['message' => 'Couldn\'t Delete This User']);
+        }
+        $user = User::find($id);
+        if ($user->type != 0) {
+            $user->type = 0;
+        }else {
+            $user->type = 1;
+        }
+        $user->save();
+        return redirect()->back()->with(['message' => 'The User Blocked Successfully']);
+    }
+
 
     public function profile()
     {

@@ -64,6 +64,7 @@ class BooksController extends Controller
             'file'                  => 'required|mimes:pdf|max:10240',
             'sample'                => 'required|mimes:pdf|max:10240',
             'version'               => 'required',
+            'book_code'               => 'required|max:4',
             'description'           => 'required|min:100',
             'cat_id'                => 'required|numeric',
             'level_id'              => 'required|numeric',
@@ -77,6 +78,7 @@ class BooksController extends Controller
         $book->file              = $this->uploadBook($request['file']);
         $book->sample            = $this->uploadBook($request['sample'], true);
         $book->version           = $request['version'];
+        $book->book_code           = $request['book_code'];
         $book->description       = $request['description'];
         $book->cat_id            = $request['cat_id'];
         $book->level_id          = $request['level_id'];
@@ -137,6 +139,7 @@ class BooksController extends Controller
             'image'                 => 'image|mimes:jpg,png,jpeg|max:5000',
             'file'                  => 'mimes:pdf|max:10240',
             'version'               => 'required|numeric',
+            'book_code'             => 'required|max:4',
             'description'           => 'required|min:100',
             'cat_id'                => 'required|numeric',
             'level_id'              => 'required|numeric',
@@ -160,6 +163,7 @@ class BooksController extends Controller
             $book->sample          = $this->uploadBook($request['sample'], true);
         }
         $book->version           = $request['version'];
+        $book->book_code         = $request['book_code'];
         $book->description       = $request['description'];
         $book->cat_id            = $request['cat_id'];
         $book->level_id          = $request['level_id'];
@@ -204,13 +208,10 @@ class BooksController extends Controller
    /*
    * return the books filltred by levels
    */
-   public function getBooksByLevel(Request $request, Book $book)
+   public function getBooks(Request $request, Book $book)
    {
       $user = \Auth::user();
-      $books = $book->where(function ($q) use($user) {
-         $q->where('level_id', '<=', $user->level_id);
-         $q->where('specialization_id', $user->specialization_id);
-      })->orderBy('id', 'DESC')->paginate(10, ['*'], 'books');
+      $books = $book->orderBy('id', 'DESC')->paginate(9, ['*'], 'books');
       return view('frontend.items', compact('books'));
    }
 
@@ -303,9 +304,15 @@ class BooksController extends Controller
             $q->where('level_id', '<=', $user->level_id);
             $q->where('specialization_id', $user->specialization_id);
             $q->where('cat_id', $cat_id);
-         })->orderBy('id', 'DESC')->paginate(10, ['*'], 'books');
+        })->orderBy('id', 'DESC')->paginate(9, ['*'], 'books');
          return view('frontend.items', compact('books'));
       }
+   }
+
+   public function filterLevel(Request $request, $id)
+   {
+       $books = Book::where('level_id', $id)->orderBy('id', 'DESC')->paginate(9, ['*'], 'books');
+       return view('frontend.items', compact('books'));
    }
 
    /*
@@ -339,10 +346,10 @@ class BooksController extends Controller
             $q->where('title', 'LIKE', "%$request->search%");
          } elseif ($request->searchBy == 2) {
             $q->where('author', 'LIKE', "%$request->search%");
+         } elseif ($request->searchBy == 3) {
+            $q->where('book_code', 'LIKE', "%$request->search%");
          }
-         $q->where('level_id', '<=', $user->level_id);
-         $q->where('specialization_id', $user->specialization_id);
-      })->orderBy('id', 'DESC')->paginate(10, ['*'], 'books');
+     })->orderBy('id', 'DESC')->paginate(9, ['*'], 'books');
       return view('frontend.items', compact('books'));
    }
 
@@ -352,13 +359,10 @@ class BooksController extends Controller
 
       $level            = Level::findOrFail($request->idOne)->id;
       $specialization   = Specialization::findOrFail($request->idTwo)->id;
-      $subjects          =
-
-      Subject::where(function ($q) use($level, $specialization) {
-         $q->where('level_id', $level);
-         $q->where('specialization_id', $specialization);
-      })->get();
-
+      $subjects         = Subject::where(function ($q) use($level, $specialization) {
+                             $q->where('level_id', $level);
+                             $q->where('specialization_id', $specialization);
+                          })->get();
       $subjectOption .= "<option value='' disabled selected>Choose your option</option>";
       foreach ($subjects as $subject) {
          $subjectOption .= "<option value='". $subject->id ."'>". $subject->name ."</option>";
