@@ -75,7 +75,7 @@
                         <li><a class="white-text" href="#">Site Email: {{ getSetting('email') }}</a></li>
                         <li><a class="white-text" href="#">Site Phone: {{ getSetting('sitePhone') }}</a></li>
                         <li><a class="white-text" href="#">Site address: {{ getSetting('address') }}</a></li>
-
+                        <li><a class="white-text" href="E-learning">E-learning</a></li>
                     </ul>
                 </div>
             </div>

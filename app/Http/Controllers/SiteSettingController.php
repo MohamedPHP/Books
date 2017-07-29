@@ -21,8 +21,9 @@ class siteSettingController extends Controller
    {
       foreach (array_except($request->toArray(), ['_token', 'submit']) as $key => $req) {
          $siteSettingUpdate = SiteSetting::where('nameSetting', $key)->first();
-
-         $siteSettingUpdate->fill(['value' => $req])->save();
+         if (strip_tags($req) != '') {
+             $siteSettingUpdate->fill(['value' => $req])->save();
+         }
       }
       return redirect()->back()->with(['message' => 'the data upated successfully']);
    }
