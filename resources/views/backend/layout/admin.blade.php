@@ -2,13 +2,13 @@
 <html >
 <head>
     <meta charset="UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <title>Admin Dashboard with Materialize</title>
 
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet prefetch" href="{{asset('backend/css/material.css')}}">
     <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/font/material-design-icons/Material-Design-Icons.woff'>
     <link rel="stylesheet" href="{{asset('backend/css/style.css')}}">
-
     @yield('styles')
 
 </head>

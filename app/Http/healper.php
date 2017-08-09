@@ -2,7 +2,7 @@
 // site setting
 function getSetting($settingName = 'siteName')
 {
-	return \App\siteSetting::where('nameSetting', $settingName)->first()->value;
+	return \App\SiteSetting::where('nameSetting', $settingName)->first()->value;
 }
 
 

@@ -17,7 +17,7 @@
     <div class="row" style="padding: 25px;">
         <div class="col s12 z-depth-3">
             <br>
-            <form action="{{ route('book.store') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ url('admin/books/store') }}" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 {{-- `title`, `author`, `image`, `file`, `version`, `description`, `cat_id`, `level_id`, `specialization_id` --}}
                 <div class="row">

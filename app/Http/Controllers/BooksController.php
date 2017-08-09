@@ -57,6 +57,7 @@ class BooksController extends Controller
     public function store(Request $request)
     {
         // `title`, `author`, `image`, `file`, `version`, `description`, `cat_id`, `level_id`, `specialization_id`
+        // dd($request->all());
         $this->validate($request, [
             'title'                 => 'required',
             'author'                => 'required',
@@ -64,7 +65,7 @@ class BooksController extends Controller
             'file'                  => 'required|mimes:pdf|max:10240',
             'sample'                => 'required|mimes:pdf|max:10240',
             'version'               => 'required',
-            'book_code'               => 'required|max:4',
+            'book_code'             => 'required|max:4',
             'description'           => 'required|min:100',
             'cat_id'                => 'required|numeric',
             'level_id'              => 'required|numeric',
